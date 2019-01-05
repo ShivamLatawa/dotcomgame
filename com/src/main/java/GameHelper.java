@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class GameHelper {
-    public String userInput() {
+class GameHelper {
+    String userInput() {
         System.out.println( "enter a number -> " );
 
         String inputLine = null;
