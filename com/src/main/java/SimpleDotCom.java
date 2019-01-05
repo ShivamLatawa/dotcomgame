@@ -2,23 +2,27 @@ package com.src.main.java;
 
 import java.util.ArrayList;
 
-public class SimpleDotCom {
+class SimpleDotCom {
 
     private static final String MISS = "miss";
     private static final String HIT = "hit";
-    public static final String KILL = "kill";
-    private static int count = 0;
+    static final String KILL = "kill";
     private ArrayList<Integer> locations;
 
-    public void setLocations( ArrayList<Integer> locations ) {
+    void setLocations( ArrayList<Integer> locations ) {
         this.locations = locations;
     }
 
-    public String checkGuess( String guess ) {
-        if ( locations.contains( Integer.parseInt( guess ) ) ) {
-            count++;
+    String checkGuess( String guess ) {
+        final int guessedValue = Integer.parseInt( guess );
 
-            if ( count == locations.size() ) {
+        if ( locations.contains( guessedValue ) ) {
+
+            final int indexOfGuessedValue = locations.indexOf( guessedValue );
+
+            locations.remove( indexOfGuessedValue );
+
+            if ( locations.isEmpty() ) {
                 return KILL;
             }
             return HIT;
